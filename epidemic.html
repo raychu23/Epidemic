@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    
+    <title>Unity WebGL Player | Epidemic</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="EpidemicBuildNew/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "EpidemicBuildNew/WebGL.json", {onProgress: UnityProgress});
+    </script>
+    <script src="CODAPBuild/node_modules/jquery/dist/jquery.js" language="javascript"></script>
+    <script src="CODAPBuild/node_modules/iframe-phone/dist/iframe-phone.js" language="javascript"></script>
+    
+    <script type="text/javascript">
+      var DefendersGame = {
+            initializeGame: function() {
+              //this.dataGamesAPI = new DataGamesAPI();
+              this.codapPhone = new iframePhone.IframePhoneRpcEndpoint(function(iCmd, callback) {
+                  var operation = iCmd && iCmd.operation,
+                          args = iCmd && iCmd.args
+              }, "data-interactive", window.parent);
+            }
+      }
+    var openGameCase = null;
+    </script>
+  </head>
+  <body>
+    <script>DefendersGame.initializeGame()</script>
+    <div class="webgl-content">
+      <div id="unityContainer" style="width: 960px; height: 540px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+        <div class="title">Epidemic</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+﻿using UnityEngine;
+using TMPro;
+
+public class LevelClickTracker : MonoBehaviour
+{
+    public void UpdateClicks()
+    {
+        TMP_Dropdown dropdown = gameObject.GetComponent<TMP_Dropdown>();
+        switch (dropdown.value)
+        {
+            case 0:
+                DataClicks.levelall++;
+                break;
+            case 1:
+                DataClicks.level1++;
+                break;
+            case 2:
+                DataClicks.level2++;
+                break;
+            case 3:
+                DataClicks.level2a++;
+                break;
+            case 4:
+                DataClicks.level3++;
+                break;
+            case 5:
+                DataClicks.level3a++;
+                break;
+            case 6:
+                DataClicks.level4++;
+                break;
+            case 7:
+                DataClicks.level4a++;
+                break;
+            case 8:
+                DataClicks.level5++;
+                break;
+            case 9:
+                DataClicks.level5a++;
+                break;
+        }
+    }
+}
